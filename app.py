@@ -96,8 +96,8 @@ def main():
     
         custom_objects = {'jaccard_loss': segmentation_models.losses.jaccard_loss,
                  }
-        loaded_model = load_model('/workspaces/seismic_segmentation_app/model_architecture(1).h5', custom_objects=custom_objects)
-        loaded_model.load_weights('/workspaces/seismic_segmentation_app/model_weights(1).h5')
+        loaded_model = load_model('/workspaces/seismic_segmentation_app/model_architecture.h5', custom_objects=custom_objects)
+        loaded_model.load_weights('/workspaces/seismic_segmentation_app/model_weights.h5')
         predictions = loaded_model.predict(np.array(preprocessed_images))
         num_images = predictions.shape[0]
         plot_images(np.array(preprocessed_images), predictions)
